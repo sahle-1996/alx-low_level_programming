@@ -6,7 +6,6 @@
  * Return: Always 0 (Succuess)
  */
 int main(void)
-
 {
 	int n;
 
