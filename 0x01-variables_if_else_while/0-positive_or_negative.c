@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
-/*
- * main - prints if the number is positive,negative or 0
+#include <time.h>/
+/**
+ * main - Entry point
  *
- * Return: Always 0 (Succuess)
+ * Return: Always 0 (Success)
  */
 int main(void)
 {
