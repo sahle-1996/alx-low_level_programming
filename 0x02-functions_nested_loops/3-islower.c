@@ -3,7 +3,7 @@
 /**
  * int _islower Entry - point
  *
- * Return: 0
+ * Return: Always 0 (Success)
  */
 
 int _islower(int c)
