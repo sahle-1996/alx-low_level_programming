@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * int _islower Entry - point
+ * _islower Entry - point
  *
  * Return: Always 0 (Success)
  */
