@@ -1,0 +1,36 @@
+" ============================================================================
+" Netrw Directory Listing                                        (netrw v165)
+"   /alx-zero_day
+"   Sorted by      name
+"   Sort sequence: [\/]$,\<core\%(\.\d\+\)\=\>,\.h$,\.c$,\.cpp$,\~\=\*$,*,\.o$,\.obj$,\.info$,\.swp$,\.bak$,\~$
+"   Quick Help: <F1>:help  -:go up dir  D:delete  R:rename  s:sort-by  x:special
+" ==============================================================================
+../
+/
+| alx-pre_course/
+| alx-zero_day/
+| | .git/
+| | 0x03-git/
+| | README.md
+| boot/
+| dev/
+| etc/
+| home/
+| media/
+| mnt/
+| opt/
+| proc/
+| root/
+| run/
+| srv/
+| sys/
+| tmp/
+| usr/
+| var/
+| .dockerenv*
+| bin@	 --> bin
+| lib32@	 --> lib32
+| lib64@	 --> lib64
+| lib@	 --> lib
+| libx32@	 --> libx32
+| sbin@	 --> sbin
