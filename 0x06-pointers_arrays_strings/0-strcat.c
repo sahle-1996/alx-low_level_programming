@@ -11,24 +11,32 @@ char *_strcat(char *dest, char *src)
 
 {
 
-	char *temp = dest;
+	int count = 0, count2 = 0;
 
+	while (*(dest + count) != '\0')
 
+	{
 
-	while (*dest)
+		count++;
 
-		dest++;
+	}
 
+	while (count2 >= 0)
 
+	{
 
-	while (*src)
+		*(dest + count) = *(src + count2);
 
-		*dest++ = *src++;
+		if (*(src + count2) == '\0')
 
+			break;
 
+		count++;
 
-	*dest = '\0';
+		count2++;
 
-	return (temp);
+	}
+
+	return (dest);
 
 }
