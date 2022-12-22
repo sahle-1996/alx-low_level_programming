@@ -3,8 +3,9 @@
 /**
  * main - Prints line of code
  *
- * Return: Always (Success)
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
 int n;
