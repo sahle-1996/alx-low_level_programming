@@ -1,4 +1,5 @@
-COMPILER = gcc
-SOURCES = main.c school.c
-target: $(SOURCES)
-	$(COMPILER) $(SOURCES) -o school
+CC = gcc-9.3.0
+SRC = main.c holberton.c
+
+all: $(SRC)
+	$(CC) $(SRC) -o holberton
