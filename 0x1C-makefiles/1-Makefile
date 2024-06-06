@@ -1,5 +1,16 @@
-CC = gcc-9.3.0
-SRC = main.c holberton.c
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+OUT = school
 
-all: $(SRC)
-	$(CC) $(SRC) -o holberton
+all: $(OUT)
+
+$(OUT): $(OBJ)
+	$(CC) $(OBJ) -o $(OUT)
+
+%.o: %.c
+	$(CC) -c $< -o $@
+
+clean:
+	rm -f $(OBJ) $(OUT)
+
