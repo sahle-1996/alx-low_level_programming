@@ -1,0 +1,23 @@
+COMPILER = gcc
+SOURCES = main.c school.c
+OBJECTS = $(SOURCES:.c=.o)
+EXECUTABLE = school
+FLAGS = -Wall -Werror -Wextra -pedantic
+
+.PHONY: all clean oclean fclean re
+
+all: headers $(OBJECTS)
+	$(COMPILER) $(OBJECTS) -o $(EXECUTABLE)
+
+headers:
+	$(COMPILER) -MM $(SOURCES)
+
+clean:
+	$(RM) *~ $(EXECUTABLE)
+
+oclean:
+	$(RM) $(OBJECTS)
+
+fclean: clean oclean
+
+re: fclean all
