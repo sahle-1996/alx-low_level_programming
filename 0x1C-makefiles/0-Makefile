@@ -1,2 +1,2 @@
-build: main.c school.c
-	$(CC) $(CFLAGS) main.c school.c -o school
+build: main.c holberton.c
+	$(CC) main.c holberton.c -o holberton
