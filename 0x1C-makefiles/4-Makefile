@@ -1,21 +1,18 @@
-COMPILER = gcc
-SOURCE = main.c school.c
-OBJECTS = $(SOURCE:.c=.o)
-EXECUTABLE = school
-REMOVE = rm -f
-FLAGS = -Wall -Werror -Wextra -pedantic
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+EXEC = school
+RM = rm -f
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
-all: $(OBJECTS)
-	$(COMPILER) $(OBJECTS) -o $(EXECUTABLE)
-
-%.o: %.c
-	$(COMPILER) $(FLAGS) -c $< -o $@
+all: $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(EXEC)
 
 clean:
-	$(REMOVE) *~ $(EXECUTABLE)
+	$(RM) *~ $(EXEC)
 
 oclean:
-	$(REMOVE) $(OBJECTS)
+	$(RM) $(OBJ)
 
 fclean: clean oclean
 
