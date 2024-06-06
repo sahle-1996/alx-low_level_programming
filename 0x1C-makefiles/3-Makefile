@@ -1,18 +1,23 @@
-COMPILER = gcc
-SOURCES = main.c school.c
-OBJECTS = $(SOURCES:.c=.o)
-EXEC = school
-REMOVE = rm -f
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+TARGET = school
+RM = rm -f
 
-build: $(OBJECTS)
-	$(COMPILER) $(OBJECTS) -o $(EXEC)
+all: $(TARGET)
+
+$(TARGET): $(OBJ)
+	$(CC) $(OBJ) -o $(TARGET)
+
+%.o: %.c
+	$(CC) -c $< -o $@
 
 clean:
-	$(REMOVE) *~ $(EXEC)
+	$(RM) *~ $(TARGET)
 
-clear_objects:
-	$(REMOVE) $(OBJECTS)
+oclean:
+	$(RM) $(OBJ)
 
-full_clean: clean clear_objects
+fclean: clean oclean
 
-rebuild: full_clean build
+re: fclean all
