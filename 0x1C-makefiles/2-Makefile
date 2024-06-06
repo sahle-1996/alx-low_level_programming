@@ -1,7 +1,7 @@
-COMP = gcc
-FILES = main.c school.c
-OBJECTS = $(FILES:.c=.o)
-OUTPUT = school
+CC = gcc-9.3.0
+SRC = main.c holberton.c
+OBJ = $(SRC:.c=.o)
+NAME = holberton
 
-compile: $(OBJECTS)
-	$(COMP) $(OBJECTS) -o $(OUTPUT)
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
