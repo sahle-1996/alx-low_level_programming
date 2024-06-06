@@ -1,0 +1,18 @@
+COMPILER = gcc
+SOURCES = main.c school.c
+OBJECTS = $(SOURCES:.c=.o)
+EXEC = school
+REMOVE = rm -f
+
+build: $(OBJECTS)
+	$(COMPILER) $(OBJECTS) -o $(EXEC)
+
+clean:
+	$(REMOVE) *~ $(EXEC)
+
+clear_objects:
+	$(REMOVE) $(OBJECTS)
+
+full_clean: clean clear_objects
+
+rebuild: full_clean build

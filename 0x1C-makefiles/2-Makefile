@@ -1,0 +1,7 @@
+COMP = gcc
+FILES = main.c school.c
+OBJECTS = $(FILES:.c=.o)
+OUTPUT = school
+
+compile: $(OBJECTS)
+	$(COMP) $(OBJECTS) -o $(OUTPUT)

@@ -1,0 +1,2 @@
+build: main.c school.c
+	$(CC) $(CFLAGS) main.c school.c -o school

@@ -1,0 +1,19 @@
+COMP = gcc
+SOURCES = main.c school.c
+OBJECTS = $(SOURCES:.c=.o)
+EXEC = school
+REMOVE = rm -f
+FLAGS = -Wall -Werror -Wextra -pedantic
+
+all: $(OBJECTS)
+	$(COMP) $(OBJECTS) -o $(EXEC) $(FLAGS)
+
+clean:
+	$(REMOVE) *~ $(EXEC)
+
+remove_objects:
+	$(REMOVE) $(OBJECTS)
+
+full_clean: clean remove_objects
+
+rebuild: full_clean all
