@@ -1,22 +1,21 @@
-COMPILER = gcc
-SOURCES = main.c school.c
-OBJECTS = $(SOURCES:.c=.o)
-EXECUTABLE = school
-FLAGS = -Wall -Werror -Wextra -pedantic
+CC = gcc
+SRC = main.c school.c
+OBJ = $(patsubst %.c,%.o,$(SRC))
+NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
 
 .PHONY: all clean oclean fclean re
 
-all: headers $(OBJECTS)
-	$(COMPILER) $(OBJECTS) -o $(EXECUTABLE)
+all: $(NAME)
 
-headers:
-	$(COMPILER) -MM $(SOURCES)
+$(NAME): $(OBJ) m.h
+	$(CC) $(OBJ) -o $@
 
 clean:
-	$(RM) *~ $(EXECUTABLE)
+	-$(RM) *~ $(NAME)
 
 oclean:
-	$(RM) $(OBJECTS)
+	-$(RM) $(OBJ)
 
 fclean: clean oclean
 
