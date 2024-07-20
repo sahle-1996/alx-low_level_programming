@@ -45,5 +45,15 @@ int jump_search(int *array, size_t size, int value);
 int interpolation_search(int *array, size_t size, int value);
 int exponential_search(int *array, size_t size, int value);
 int advanced_binary(int *array, size_t size, int value);
+int binary_search_advanced(int *array, size_t size, int value);
+int recursive_binary(int *array, int left, int right, int value);
+void show_array(int *array, int start, int end);
+
+int binary_search_advanced(int *array, size_t size, int value)
+{
+    if (!array || size == 0)
+        return (-1);
+    return (recursive_binary(array, 0, (int)size - 1, value));
+}
 
 #endif
