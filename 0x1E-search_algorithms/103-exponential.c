@@ -1,78 +1,73 @@
 #include "search_algos.h"
 
 /**
- * display_array - prints an array from index l to r
- * @array: the array to print
- * @l: the left index
- * @r: the right index
- */
-void display_array(int *array, int l, int r)
+  * bin_search - Searches for a value in a sorted array
+  *              of integers using binary search.
+  * @array: A pointer to the first element of the array to search.
+  * @left: The starting index of the [sub]array to search.
+  * @right: The ending index of the [sub]array to search.
+  * @value: The value to search for.
+  *
+  * Return: If the value is not present or the array is NULL, -1.
+  *         Otherwise, the index where the value is located.
+  *
+  * Description: Prints the [sub]array being searched after each change.
+  */
+int bin_search(int *array, size_t left, size_t right, int value)
 {
-	int i;
+	size_t mid, i;
 
-	for (i = l; i <= r; i++)
+	if (array == NULL)
+		return (-1);
+
+	while (right >= left)
 	{
-		printf("%d", array[i]);
-		if (i < r)
-			printf(", ");
+		printf("Searching in array: ");
+		for (i = left; i < right; i++)
+			printf("%d, ", array[i]);
+		printf("%d\n", array[i]);
+
+		mid = left + (right - left) / 2;
+		if (array[mid] == value)
+			return (mid);
+		if (array[mid] > value)
+			right = mid - 1;
+		else
+			left = mid + 1;
 	}
-	printf("\n");
+
+	return (-1);
 }
 
 /**
- * exponential_search - searches for a value in an array using
- *                      the exponential search algorithm
- * @array: array of integers
- * @size: size of the array
- * @value: the value to search for
- * Return: the index of the value, or -1 if not found
- */
-int exponential_search(int *array, size_t size, int value)
+  * expo_search - Searches for a value in a sorted array
+  *               of integers using exponential search.
+  * @array: A pointer to the first element of the array to search.
+  * @size: The number of elements in the array.
+  * @value: The value to search for.
+  *
+  * Return: If the value is not present or the array is NULL, -1.
+  *         Otherwise, the index where the value is located.
+  *
+  * Description: Prints a value every time it is compared in the array.
+  */
+int expo_search(int *array, size_t size, int value)
 {
-	int bound = 1, prev = 0;
+	size_t i = 1, bound;
 
-	if (!array || size == 0)
+	if (array == NULL)
 		return (-1);
 
 	if (array[0] == value)
 		return (0);
 
-	while (bound < (int)size && array[bound] < value)
+	while (i < size && array[i] <= value)
 	{
-		printf("Value checked array[%d] = [%d]\n", bound, array[bound]);
-		prev = bound;
-		bound *= 2;
+		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
+		i *= 2;
 	}
 
-	if (bound >= (int)size)
-		bound = (int)size - 1;
-
-	printf("Value found between indexes [%d] and [%d]\n", prev, bound);
-	return binary_search_ex(array, prev, bound, value);
-}
-
-/**
- * binary_search_ex - auxiliary function for binary search within bounds
- * @array: array of integers
- * @left: left index of the subarray
- * @right: right index of the subarray
- * @value: the value to search for
- * Return: the index of the value, or -1 if not found
- */
-int binary_search_ex(int *array, int left, int right, int value)
-{
-	while (left <= right)
-	{
-		int mid = left + (right - left) / 2;
-
-		printf("Searching in array: ");
-		display_array(array, left, right);
-		if (array[mid] == value)
-			return (mid);
-		if (array[mid] < value)
-			left = mid + 1;
-		else
-			right = mid - 1;
-	}
-	return (-1);
+	bound = i < size ? i : size - 1;
+	printf("Value found between indexes [%ld] and [%ld]\n", i / 2, bound);
+	return (bin_search(array, i / 2, bound, value));
 }
